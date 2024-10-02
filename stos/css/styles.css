@@ -1,0 +1,103 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --success-color: #1e5e2d;
+    --info-color: #17a2b8;
+    --warning-color: #ffc107;
+    --danger-color: #dc2626;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+}   
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: var(--dark-color);
+    margin: 0;
+    padding: 0;
+}
+
+.login-body {
+    background-image: url(../img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-body::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: inherit;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-form {
+    background-color: FF7A59;
+    padding: 3rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+}
+
+.checkbox {
+    margin-bottom: 15px;
+    text-align: center;
+    color: white;
+}
+
+.forgot-password {
+    margin-bottom: 15px;
+    text-align: center;
+    color: white;
+}
+
+.submit-button {
+    text-align: center;
+    align-items: center;
+}
+
+.submit-button button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--success-color);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-button button:hover {
+    background-color: var(--success-color);
+}

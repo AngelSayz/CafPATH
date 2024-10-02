@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css"> <!-- Enlaza a un archivo CSS -->
+    <title>Employee Tracking System</title>
+    <script>
+        function displayOptionsByRole() {
+            var role = document.getElementById('role').value;
+
+            // Ocultar todas las secciones
+            document.getElementById('admin-options').style.display = 'none';
+            document.getElementById('supervisor-options').style.display = 'none';
+            document.getElementById('employee-options').style.display = 'none';
+
+            // Mostrar secciones según el rol seleccionado
+            if (role === 'admin') {
+                document.getElementById('admin-options').style.display = 'block';
+            } else if (role === 'supervisor') {
+                document.getElementById('supervisor-options').style.display = 'block';
+            } else if (role === 'employee') {
+                document.getElementById('employee-options').style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Tracking System</h1>
+
+        <!-- Selección de nivel de empleado -->
+        <div class="input-group">
+            <label for="role">Select Employee Role</label>
+            <select id="role" onchange="displayOptionsByRole()">
+                <option value="">-- Select Role --</option>
+                <option value="admin">Administrator</option>
+                <option value="supervisor">Supervisor</option>
+                <option value="employee">Employee</option>
+            </select>
+        </div>
+
+        <!-- Opciones para Administrador -->
+        <div id="admin-options" style="display:none;">
+            <h2>Administrator Functions</h2>
+            <ul>
+                <li><a href="#">Register new employees</a></li>
+                <li><a href="#">Manage company-wide reports</a></li>
+                <li><a href="#">Assign vehicle to delivery employees</a></li>
+                <li><a href="#">Manage warehouses and inventories</a></li>
+                <li><a href="#">View all employee records</a></li>
+                <li><a href="#">View all routes and insurance information</a></li>
+                <li><a href="#">Access global shipment histories</a></li>
+            </ul>
+        </div>
+
+        <!-- Opciones para Supervisor -->
+        <div id="supervisor-options" style="display:none;">
+            <h2>Supervisor Functions</h2>
+            <ul>
+                <li><a href="#">Register new employees</a></li>
+                <li><a href="#">Assign vehicle to delivery employees</a></li>
+                <li><a href="#">Assign warehouse orders to employees</a></li>
+                <li><a href="#">Consult employee information</a></li>
+                <li><a href="#">Consult customer information</a></li>
+                <li><a href="#">View shipment histories and records</a></li>
+                <li><a href="#">View delivery indices and routes</a></li>
+                <li><a href="#">Consult package insurance information</a></li>
+                <li><a href="#">Consult warehouse-specific inventory</a></li>
+            </ul>
+        </div>
+
+        <!-- Opciones para Empleados -->
+        <div id="employee-options" style="display:none;">
+            <h2>Employee Functions</h2>
+            <ul>
+                <li><a href="#">View personal assigned vehicle</a></li>
+                <li><a href="#">View assigned delivery routes</a></li>
+                <li><a href="#">Access current warehouse orders</a></li>
+                <li><a href="#">Check inventory availability in the warehouse</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
