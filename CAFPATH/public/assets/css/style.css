@@ -6,7 +6,7 @@ html {
 
 body {
     font-size: 2rem;
-    background-color: var(--beige);
+    background-color: var(--lightgrey);
     margin: 0;
     padding: 0;
 }
@@ -15,13 +15,16 @@ body {
     --darkgrey: #333;
     --black: #000000;
     --white: #ffffff;
-    --blue: rgb(34, 90, 55);
+    --blue: rgb(56, 92, 173);
+    --skyblue: rgb(35, 141, 193);
+    --lightgrey: #f0f0f0;
 }
 
 #main-nav {
     position: fixed;
     top: 0;
     width: 100%;
+    height: 5rem;
     background-color: var(--darkgrey);
     color: var(--white);
     padding: 10px 0;
@@ -38,6 +41,8 @@ body {
 }
 
 #main-nav ul li {
+    position: relative;
+    /* Added to position the dropdown */
     margin: 0 15px;
 }
 
@@ -46,8 +51,54 @@ body {
     text-decoration: none;
 }
 
+#main-nav ul li a:hover {
+    color: var(--skyblue);
+}
+
+#main-nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--darkgrey);
+    padding: 0;
+    list-style-type: none;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+#main-nav ul li:hover ul {
+    display: block;
+}
+
+#main-nav ul li ul li {
+    margin: 0;
+}
+
+#main-nav ul li ul li a {
+    display: block;
+    padding: 10px;
+    color: var(--white);
+    text-decoration: none;
+    text-align: left;
+}
+
+#main-nav ul li ul li a:hover {
+    background-color: var(--skyblue);
+}
+
 #banner {
-    margin-top: 100px;
+    margin-top: 4rem;
+    background-color: var(--skyblue);
+    height: 40rem;
+    width: 100%;
+    position: relative;
+}
+
+#banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 @media (min-width: 768px) {
@@ -55,6 +106,35 @@ body {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         column-gap: 1rem;
-        justify-content: space-around;
+        justify-content: space-between;
     }
+}
+
+#services article {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--white);
+    /* Changed to grey background */
+    color: var(--darkgrey);
+    border-radius: 2rem;
+    /* Increased border radius */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Added shadow effect */
+    text-align: justify;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+#banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#logo {
+    max-width: auto;
+    max-height: 2.5rem;
 }
