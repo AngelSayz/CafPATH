@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta de Inventario por Almacén</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2>Consulta de Inventario por Almacén</h2>
+    <form action="../../app/Controllers/stock.php" method="POST">
+        <label for="warehouse_code">Selecciona el Almacén:</label>
+        <select id="warehouse_code" name="warehouse_code" required>
+            <?php
+            include 'conecxion.php';
+            $sql = "SELECT code, name FROM Warehouse";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<option value='" . $row['code'] . "'>   Almacenes  </option>";
+                }
+            } else {
+                echo "<option value='WH001'>Almacen Principal</option>";
+                echo "<option value='WH002'>Almacen Materia Prima</option>";
+                echo "<option value='WH003'>Almacen Producto Terminado</option>";
+                echo "<option value='WH004'>Almacen Refacciones</option>";
+                echo "<option value='WH005'>Almacen Empaque</option>";
+            }
+            $conn->close();
+            ?>
+        </select>
+        <br><br>
+        <input type="submit" value="Consultar Inventario">
+    </form>
+</body>
+</html>

@@ -38,6 +38,10 @@ h2 {
     text-align: center;
 }
 
+main {
+    margin-top: 2.5rem;
+}
+
 
 /* Navigation styles */
 
@@ -147,6 +151,13 @@ h2 {
     transform: translate(-50%, -50%);
     color: var(--white);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 1rem;
+    border-radius: 1rem;
+    max-width: 50%;
+    /* Set a maximum width */
 }
 
 
@@ -159,23 +170,31 @@ h2 {
     color: var(--darkgrey);
     border-radius: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: justify;
+    text-align: left;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.service {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
 /* Logo styles */
 
 .logo {
-    max-width: auto;
-    max-height: 2.5rem;
+    max-height: 4rem;
+    max-width: 4rem;
 }
 
 
 /* Media queries */
 
-@media (min-width: 768px) {
+@media (min-width: 76.8rem) {
     #services {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -218,11 +237,13 @@ h2 {
 
 .footer-section ul li {
     margin-bottom: 0.5rem;
+    list-style-type: none;
 }
 
 .footer-section a {
     color: var(--white);
     text-decoration: none;
+    list-style-type: none;
 }
 
 .footer-section a:hover {
@@ -230,18 +251,25 @@ h2 {
 }
 
 .social-media {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    display: block;
+    /* Change from flex to block */
+    text-align: left;
+    /* Align text to the left */
 }
 
 .social-media svg {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
+    /* Adjust margin as needed */
+    vertical-align: middle;
+    /* Align icons with text */
 }
 
 .social-media p {
+    display: inline-block;
+    /* Keep text next to icons */
     margin: 0;
+    margin-bottom: 1rem;
+    /* Add space between items */
 }
 
 .footer-bottom {
@@ -252,4 +280,82 @@ h2 {
 
 main {
     flex: 1;
+}
+
+
+/* Layout styles */
+
+.layout {
+    display: grid;
+    gap: 0.4rem;
+    grid-template-rows: 4rem 4rem auto 6rem 6rem 4rem;
+    grid-template-columns: 1fr;
+    grid-template-areas: "header" "nav" "main" "widget" "stats" "footer";
+    height: 100vh;
+}
+
+@media (min-width: 48rem) {
+    .layout {
+        display: grid;
+        grid-template-rows: 4rem auto 8rem 4rem;
+        grid-template-columns: 16rem auto auto;
+        grid-template-areas: "header header header" "nav main main" "nav widget stats" "footer footer footer";
+    }
+}
+
+.layout header {
+    grid-area: header;
+    background-color: rgb(173, 216, 230);
+    /* Light Blue */
+}
+
+.layout footer {
+    grid-area: footer;
+    background-color: rgb(144, 238, 144);
+    /* Light Green */
+}
+
+.layout nav {
+    grid-area: nav;
+    background-color: rgb(255, 255, 224);
+    /* Light Yellow */
+}
+
+.layout main {
+    grid-area: main;
+    background-color: rgb(216, 191, 216);
+    /* Thistle (Light Purple) */
+}
+
+.layout article.widget {
+    grid-area: widget;
+    background-color: rgb(255, 228, 196);
+    /* Bisque (Light Orange) */
+    width: 100%;
+}
+
+.layout article.stats {
+    grid-area: stats;
+    background-color: rgb(255, 182, 193);
+    /* Light Pink */
+    width: 100%;
+}
+
+
+/* FAQ styles */
+
+.faq-question {
+    cursor: help;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+}
+
+.faq-answer {
+    display: none;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #e9e9e9;
+    border: 1px solid #ccc;
 }
