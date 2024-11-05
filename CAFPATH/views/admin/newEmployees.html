@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Empleado</title>
+</head>
+<body>
+    <h1>Registrar Empleado</h1>
+    <form action="../../app/Controllers/newEmployees.php" method="POST">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="lastname">Apellido:</label>
+        <input type="text" id="lastname" name="lastname" required><br>
+
+        <label for="surname">Segundo Apellido:</label>
+        <input type="text" id="surname" name="surname"><br>
+
+        <label for="role">Rol:</label>
+        <select id="role" name="role" required>
+            <option value="R001">Supervisor</option>
+            <option value="R002">Operador</option>
+            <option value="R003">Transportista</option>
+        </select><br>
+
+        <label for="vehicle_num">Vehículo:</label>
+        <select id="vehicle_num" name="vehicle_num">
+            <option value="">Seleccione un vehículo</option>
+            <?php
+            include 'conecxion.php';
+
+            $sql = "SELECT number, license_plate FROM Vehicle";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<option value='" . $row['number'] . "'>Eliga uno</option>";
+                }
+            } else {
+                echo "<option value='ABC123'>Camión 5 Toneladas</option>";
+                echo "<option value='DEF456'>Camioneta 3 Toneladas</option>";
+                echo "<option value='GHI789'>Camión 10 Toneladas</option>";
+                echo "<option value='JKL012'>Furgoneta 1 Tonelada</option>";
+                echo "<option value='MNO345'>Camión 8 Toneladas</option>";
+                echo "<option value='PQR678'>Camioneta 2 Toneladas</option>";
+                echo "<option value='STU901'>Furgoneta 1.5 Toneladas</option>";
+                echo "<option value='VWX234'>Camión 12 Toneladas</option>";
+                echo "<option value='YZA567'>Camioneta 2.5 Toneladas</option>";
+                echo "<option value='BCD890'>Camión 7 Toneladas</option>";
+                echo "<option value='XYZ999'>Camioneta 1.8 Toneladas</option>";
+            }
+
+            ?>
+        </select><br>
+
+        <label for="warehouse_code">Almacén:</label>
+        <select id="warehouse_code" name="warehouse_code" required>
+            <?php
+            $sql = "SELECT code, name FROM Warehouse";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<option value='" . $row['code'] . "'>Alamacen</option>";
+                }
+            } else {
+                echo "<option value='WH001'>Almacén Principal (WH001)</option>";
+                echo "<option value='WH002'>Almacén Materia Prima (WH002)</option>";
+                echo "<option value='WH003'>Almacén Producto Terminado (WH003)</option>";
+                echo "<option value='WH004'>Almacén Refacciones (WH004)</option>";
+                echo "<option value='WH005'>Almacén Empaque (WH005)</option>";
+            }
+
+            $conn->close(); 
+            ?>
+        </select><br>
+
+        <button type="submit">Registrar</button>
+    </form>
+</body>
+</html>
